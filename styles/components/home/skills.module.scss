@@ -1,0 +1,61 @@
+@import "../../helpers/variables.module";
+
+.skillsBox {
+  position: relative;
+  background: $light;
+}
+
+.skills {
+  background: $gray;
+  min-height: 178px;
+  position: relative;
+  top: calc(178px / 2);
+  box-shadow: 6px 8px 9px transparentize($gray, 0.5);
+  display: flex;
+  align-items: center;
+}
+
+.skillsContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 78%;
+  height: 100%;
+  margin: 0 auto;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.9rem;
+    color: $light;
+    text-align: center;
+    text-transform: uppercase;
+
+    svg {
+      height: 105px;
+      width: 92px;
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .skillsContainer {
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .skillsContainer {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .skillsContainer {
+    flex-direction: column;
+    div {
+      margin: 20px 0;
+    }
+  }
+}

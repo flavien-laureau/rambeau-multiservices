@@ -1,0 +1,17 @@
+@import "../variables.module";
+
+@mixin buttonCTA {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  background: $orange;
+  color: $light;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.6rem;
+  border: none;
+  padding: 8px 10px;
+
+  &:hover {
+    background: darken($orange, 10%);
+  }
+}

@@ -1,0 +1,29 @@
+@import "../../helpers/variables.module";
+@import "../../helpers/mixins/list-items-triangle";
+
+.hook2 {
+  padding-top: 120px;
+  background: $light;
+
+  h2 {
+    text-align: center;
+    text-decoration: underline;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: $bebas-3;
+    font-weight: normal;
+  }
+
+  ul {
+    max-width: 390px;
+    margin: 50px auto;
+
+    li {
+      list-style: none;
+      margin: 12px 0;
+
+      &::before {
+        @include list-items-triangle;
+      }
+    }
+  }
+}

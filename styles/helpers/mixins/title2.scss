@@ -1,0 +1,62 @@
+@import "../variables.module";
+
+@mixin title2($color) {
+  max-width: 550px;
+  padding: 22.4px 12.8px;
+  border: 5px solid $color;
+  border-radius: 1000px;
+  display: flex;
+  align-items: center;
+
+  div {
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    top: -10px;
+
+    h2 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: $bebas-2;
+      font-weight: normal;
+      margin-bottom: 6.4px;
+    }
+
+    h3 {
+      font-family: "Nunito", sans-serif;
+      font-size: 12.8px;
+      color: $color;
+      font-weight: normal;
+
+      &::after {
+        display: block;
+        content: "";
+        height: 3.5px;
+        width: 100%;
+        background-color: $orange;
+        position: relative;
+        top: 8px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    padding: 20px 0;
+    border: none;
+
+    svg {
+      margin-bottom: 20px;
+    }
+
+    div {
+      h2 {
+      }
+
+      h3 {
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+}

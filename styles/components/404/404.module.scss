@@ -1,0 +1,44 @@
+@import "../../helpers/variables.module";
+@import "../../helpers/mixins/buttonCTA";
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 40px 0;
+  a {
+    white-space: nowrap;
+    width: min-content;
+    @include buttonCTA;
+  }
+}
+
+.lottie {
+  width: auto;
+  height: 400px;
+}
+
+.text404 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  p:first-child {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: normal;
+    font-size: 6rem;
+  }
+
+  p:last-child {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .links {
+    flex-direction: column;
+    align-items: center;
+  }
+}

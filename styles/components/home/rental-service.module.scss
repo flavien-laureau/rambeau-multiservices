@@ -1,0 +1,75 @@
+@import "../../helpers/variables.module";
+@import "../../helpers/mixins/title2";
+@import "../../helpers/mixins/list-items-triangle";
+@import "../../helpers/mixins/buttonCTA";
+
+.rentalService {
+  background: $medium;
+  padding: 80px 0;
+}
+
+.rentServiceTitle {
+  @include title2($gray);
+  margin: 0 auto 80px;
+}
+
+.rentContainer {
+  background: $light;
+  display: flex;
+}
+
+.rentMain {
+  display: flex;
+  flex-direction: column;
+  margin: 72px 72px 48px 72px;
+  justify-content: space-between;
+
+  ul {
+    padding-left: 20px; //offset list-style
+    margin-bottom: 36px;
+    li {
+      list-style: none;
+      margin-bottom: 12px;
+
+      &::before {
+        @include list-items-triangle;
+      }
+    }
+  }
+}
+
+.rentFooter {
+  em {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+}
+
+.buttonCTA {
+  @include buttonCTA;
+}
+
+.img {
+  width: 50%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 1024px) {
+  .rentMain {
+    margin: 56px 36px 24px 36px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .rentalService {
+    padding: 32px 0;
+  }
+  .rentServiceTitle {
+    margin: 0 auto 32px;
+  }
+
+  .img {
+    display: none;
+  }
+}

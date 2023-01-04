@@ -1,0 +1,103 @@
+@import "helpers/variables.module";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.6rem;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.orange {
+  color: $orange;
+}
+
+.container {
+  width: 1140px;
+  max-width: 100vw;
+  margin: 0 auto;
+}
+
+#up-btn {
+  height: 45px;
+  width: 45px;
+  text-align: center;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  cursor: pointer;
+  background: $gray;
+  padding: 10px;
+  border-radius: 50%;
+  user-select: none;
+}
+
+.main-line {
+  width: 70%;
+  margin: 0 auto;
+  padding: 10px 36px;
+  border-left: 5px solid $orange;
+  background: $medium;
+  color: $gray;
+  font-weight: 600;
+
+  a {
+    text-decoration: none;
+    color: $orange;
+
+    &:hover {
+      color: darken($orange, 10%);
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .container {
+    width: 960px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 720px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+
+  .main-line {
+    width: 100%;
+  }
+
+  #up-btn {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .main-line {
+    padding: 10px 20px;
+  }
+}
+
+//@media screen and (max-width: 1280px)
+//@media screen and (max-width: 1024px)
+//@media screen and (max-width: 768px) 57% users
+//@media screen and (max-width: 440px)
+//@media screen and (max-width: 375px)
+//@media screen and (max-width: 300px)

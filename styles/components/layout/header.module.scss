@@ -1,0 +1,294 @@
+@import "../../helpers/variables.module";
+
+.topbar {
+  background: $gray;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.4rem;
+  color: $light;
+  min-height: 61px;
+
+  address,
+  a,
+  div {
+    display: flex;
+    align-items: center;
+    font-style: normal;
+
+    svg {
+      height: 32px;
+      width: 32px;
+      min-height: 32px;
+      min-width: 32px;
+    }
+
+    span {
+      margin-right: 48px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: $light;
+
+    span {
+      background: $orange;
+      padding: 10px 8px;
+
+      &:hover {
+        background: darken($orange, 10%);
+      }
+    }
+  }
+}
+
+.heroBanner {
+  background-image: url("/assets/photos/tools.jpg");
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+}
+
+.container {
+  background: transparentize($yellow, 0.16);
+  display: flex;
+  min-height: 284px;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    height: 194px;
+    margin-right: 200px;
+  }
+
+  h1 {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: normal;
+    color: $dark-text;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: 200px;
+
+    span:nth-child(1) {
+      font-size: 7.7rem;
+      line-height: 4.8rem;
+      margin-bottom: 24px;
+    }
+
+    span:nth-child(2) {
+      font-size: 5.1rem;
+      line-height: 4rem;
+    }
+
+    span:nth-child(3) {
+      font-size: 5.1rem;
+      line-height: 4.1rem;
+    }
+
+    span:nth-child(4) {
+      font-family: "Nunito", sans-serif;
+      font-size: 1.6rem;
+      line-height: 4rem;
+      white-space: nowrap;
+    }
+  }
+}
+
+.nav {
+  min-height: min-content;
+  max-height: max-content;
+  display: flex;
+  align-items: center;
+  transition: max-height 0.3s ease-in-out;
+  background: $light;
+
+  ul {
+    display: flex;
+    justify-content: center;
+  }
+  li {
+    list-style: none;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: $bebas-3;
+    padding: 10px 32px 5px 32px;
+
+    a {
+      color: $dark-text;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    div {
+      width: 0;
+      height: 4px;
+      background: $orange;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover div {
+      width: 100%;
+    }
+  }
+}
+
+.Toggle {
+  display: none;
+}
+
+.heroPictures {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  transform: translate(-48%, -20%);
+
+  img:nth-child(1) {
+    width: $tools-hexa-size;
+    height: $tools-hexa-size;
+  }
+
+  img:nth-child(2) {
+    width: $man-hexa-size;
+    height: $man-hexa-size;
+  }
+
+  img:nth-child(3) {
+    width: $pelle-hexa-size;
+    height: $pelle-hexa-size;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .container {
+    img {
+      margin-right: 100px;
+    }
+
+    h1 {
+      margin-left: 100px;
+    }
+  }
+  .heroPictures {
+    transform: translate(-48%, -20%) scale($scale-085);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .topbar {
+    span {
+      margin-right: 22.4px;
+    }
+  }
+  .container {
+    img {
+      margin-right: 20px;
+    }
+
+    h1 {
+      margin-left: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .topbar {
+    flex-direction: column;
+
+    address,
+    a,
+    div {
+      flex-direction: row-reverse;
+      margin-bottom: 5px;
+      text-align: right;
+
+      span,
+      svg {
+        margin-right: 10px;
+      }
+    }
+
+    address {
+      margin-top: 5px;
+    }
+  }
+
+  .container {
+    flex-direction: column;
+
+    img {
+      display: none;
+    }
+  }
+
+  .nav {
+    min-height: 0;
+    max-height: 0;
+    overflow: hidden;
+    justify-content: flex-end;
+    ul {
+      flex-direction: column;
+      align-items: flex-end;
+      margin: 10px;
+    }
+    li {
+      padding: 0;
+    }
+  }
+
+  .Toggle {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: $gray;
+    color: $orange;
+    height: 35px;
+    width: 35px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px $gray;
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .Toggle:hover {
+    color: darken($orange, 10%);
+  }
+  .Toggle[data-state="on"] + .nav {
+    max-height: 180px;
+  }
+
+  .heroPictures {
+    transform: translate(-50%, -20%) scale($scale-085);
+
+    img:nth-child(1) {
+      display: none;
+    }
+
+    img:nth-child(3) {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .container {
+    h1 {
+      transform: scale($scale-085);
+    }
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .heroPictures {
+    display: none;
+  }
+}

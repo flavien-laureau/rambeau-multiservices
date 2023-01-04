@@ -1,0 +1,76 @@
+[
+  {
+    "verb" : "Poser",
+    "title" : "Petits travaux de pose",
+    "services" : [
+      "Poser un lustre, un luminaire",
+      "Poser un store, une tringle à rideaux",
+      "Un détecteur de fumée, un interrupteur",
+      "Poser un meuble, une étagère, une verrière, ...",
+      "Et bien plus encore ..."
+    ],
+    "img" : "/assets/photos/Poser.jpg"
+  },
+  {
+    "verb" : "Installer",
+    "title" : "Petits travaux d’installation",
+    "services" : [
+      "Installer votre TV et décodeur",
+      "Mise en place d’électroménager",
+      "Poser une moustiquaire",
+      "Installer des éléments extérieurs (boite aux lettres, gouttières, ...)",
+      "Et bien plus encore ..."
+    ],
+    "img" : "/assets/photos/Installer.jpg"
+  },
+  {
+    "verb" : "Réparer",
+    "title" : "Petits travaux de réparation",
+    "services" : [
+      "Rénover des joints de carrelages, des joints silicones",
+      "Petites réparations électriques en tout genre",
+      "Réparer une porte qui grince ou qui frotte",
+      "Réparer un trou dans un mur",
+      "Et à peu près tout ce qui est réparable ..."
+    ],
+    "img" : "/assets/photos/Réparer.jpg"
+  },
+  {
+    "verb" : "Monter",
+    "title" : "Petits travaux de montage",
+    "services" : [
+      "Montage de meubles, de portes coulissantes, ...",
+      "Éléments de cuisine",
+      "Éléments de salle de bain (vasque, paroi de douche, ....)",
+      "Éléments exterieurs divers (éléments de chalets, de terrasse, ...)",
+      "Et bien plus encore ..."
+    ],
+    "img" : "/assets/photos/Monter.jpg"
+  },
+  {
+    "verb" : "Déboucher",
+    "title" : "Petits travaux de plomberie ",
+    "services" : [
+      "Déboucher un évier, un WC, ...",
+      "Purger un radiateur",
+      "Changer un système de robinetterie",
+      "Réparer une fuite",
+      "Quelques conseils pour réussir vos travaux de plomberie ...",
+      "Et bien plus encore ..."
+    ],
+    "img" : "/assets/photos/Déboucher.jpg"
+  },
+  {
+    "verb" : "Peindre",
+    "title" : "Petits travaux de peinture intérieur & extérieur",
+    "services" : [
+      "Réparation murs et cloisons",
+      "Retouches, finitions, rafraîchissement",
+      "Sur tout type de surface (mur, bois, métal)",
+      "Chambres, salle de bain, extérieur, ...",
+      "Quelques conseils pour réussir vos travaux de peinture ...",
+      "Et à peu près tout ce qui peut se peindre ..."
+    ],
+    "img" : "/assets/photos/Peindre.jpg"
+  }
+]

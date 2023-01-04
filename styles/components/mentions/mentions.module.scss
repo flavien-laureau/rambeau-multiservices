@@ -1,0 +1,48 @@
+@import "../../helpers/variables.module";
+
+.mentions {
+  font-size: 1.5rem;
+  padding: 120px 0;
+
+  .mentionsTitle {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  p {
+    margin: 15px 0;
+  }
+
+  :nth-child(1) {
+    margin-bottom: 50px;
+  }
+
+  :last-child {
+    margin-top: 50px;
+  }
+
+  a {
+    text-decoration: none;
+    color: $light;
+  }
+
+  .btnReturn {
+    display: inline-block;
+    color: $light;
+    cursor: pointer;
+    padding: 10px 13px;
+    background: $gray;
+
+    &:hover {
+      background: darken($gray, 7%);
+    }
+  }
+
+  .btnTop {
+    margin-bottom: 32px;
+  }
+
+  .btnBottom {
+    margin-top: 32px;
+  }
+}

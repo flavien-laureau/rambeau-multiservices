@@ -1,0 +1,113 @@
+@import "../../helpers/variables.module";
+@import "../../helpers/mixins/list-items-rectangle";
+@import "../../helpers/mixins/title1";
+
+.about {
+  background: $medium;
+  padding-top: 194px;
+  padding-bottom: 80px;
+}
+
+.container {
+  display: flex;
+  background: $light;
+  min-height: 674px;
+  position: relative;
+}
+
+.imgContainer {
+  position: relative;
+  width: 50%;
+  img {
+    object-fit: cover;
+  }
+}
+
+.aboutContainer {
+  width: 50%;
+  padding: 40px 56px;
+
+  h2 {
+    margin: 24px 0 48px;
+    @include title1("propos", $gray);
+  }
+
+  .description {
+    font-size: 1.5rem;
+    margin: 30px 0;
+  }
+
+  ul {
+    margin: 50px 0;
+
+    li {
+      list-style: none;
+      margin: 12px;
+    }
+
+    li::before {
+      @include list-items-rectangle;
+    }
+  }
+
+  p:last-child {
+    font-size: 2rem;
+    a {
+      color: $orange;
+      text-decoration: none;
+
+      &:hover {
+        color: darken($orange, 10%);
+      }
+    }
+  }
+}
+
+.aboutBtn {
+  position: absolute;
+  bottom: 10px;
+  right: calc(50% + 10px);
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+
+  a {
+    text-decoration: none;
+  }
+
+  .circleBtn {
+    width: 60px;
+    height: 60px;
+  }
+
+  p {
+    color: $light;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: $bebas-2;
+    font-weight: normal;
+    line-height: 4rem;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .imgContainer {
+    display: none;
+  }
+
+  .aboutContainer {
+    width: 100%;
+  }
+
+  .aboutBtn {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .aboutContainer {
+    padding: 20px 28px;
+  }
+}

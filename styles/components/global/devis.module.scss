@@ -1,0 +1,42 @@
+@import "../../helpers/variables.module";
+@import "../../helpers/mixins/buttonCTA";
+
+.devis {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin: 100px 0;
+  text-align: center;
+
+  strong {
+    position: relative;
+    font-size: 2.4rem;
+    text-transform: uppercase;
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 60%;
+      border-top: 1px solid transparentize($gray, 0.7);
+    }
+
+    &::after {
+      left: 110%;
+    }
+
+    &::before {
+      right: 110%;
+    }
+  }
+
+  p {
+    font-weight: 600;
+  }
+}
+
+.btnDevisCta {
+  @include buttonCTA;
+}

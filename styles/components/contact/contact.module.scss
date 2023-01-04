@@ -1,0 +1,134 @@
+@import "../../helpers/variables.module";
+@import "../../helpers/mixins/buttonCTA";
+
+.h2 {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 48px 0;
+  border-top: 1px solid transparentize($gray, 0.7);
+  border-bottom: 1px solid transparentize($gray, 0.7);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: $bebas-2;
+  font-weight: normal;
+}
+
+.contactTop {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid transparentize($gray, 0.7);
+  padding-bottom: 48px;
+  margin-bottom: 64px;
+}
+
+.contactInfoContainer {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.contactInfo {
+  font-size: 1.8rem;
+  font-weight: 600;
+
+  p {
+    margin: 10px 0;
+  }
+}
+
+.portrait {
+  position: relative;
+  height: 230px;
+  width: 170px;
+  object-fit: cover;
+}
+
+.logo {
+  path {
+    fill: $gray;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  width: 80%;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+  }
+}
+
+.formInput {
+  height: 40px;
+  background: $medium;
+  border: 1px solid transparentize($gray, 0.7);
+  border-radius: 5px;
+  margin-top: 3px;
+
+  &:focus {
+    outline: 1px solid transparentize($gray, 0.2);
+  }
+}
+
+.formTextarea {
+  height: 100px;
+}
+
+.formButton {
+  width: min-content;
+  white-space: nowrap;
+  margin-top: 16px;
+  @include buttonCTA;
+}
+
+.mapImage {
+  position: relative;
+  height: 425px;
+  width: 100%;
+  margin: 80px 0;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .form {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .logo {
+    width: 200px;
+    height: auto;
+  }
+  .contactTop {
+    flex-direction: column-reverse;
+    gap: 48px;
+  }
+  .mapImage {
+    height: 350px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .mapImage {
+    height: 300px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .contactInfoContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mapImage {
+    height: 275px;
+  }
+}

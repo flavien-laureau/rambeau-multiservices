@@ -1,0 +1,50 @@
+@import "../../helpers/variables.module";
+@import "../../helpers/mixins/title1";
+@import "../../helpers/mixins/title2";
+
+.handymanService {
+  background: $gray;
+  padding: 80px 0;
+}
+
+.servicesTitle {
+  @include title1("services", $light);
+  //margin-bottom: 132px;
+  margin-bottom: 80px;
+}
+
+.handymanServiceTitle {
+  @include title2($light);
+  margin: 80px auto;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-row-gap: 57.6px;
+  grid-column-gap: 80px;
+  margin-bottom: 80px;
+}
+
+@media screen and (max-width: 1280px) {
+  .servicesGrid {
+    grid-column-gap: 50px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .servicesGrid {
+    grid-column-gap: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .handymanServiceTitle {
+    margin: 32px auto;
+  }
+  .servicesGrid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+}
