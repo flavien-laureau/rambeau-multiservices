@@ -19,21 +19,10 @@
 }
 
 .mainText {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
-
-  p:first-child {
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: normal;
-    font-size: 6rem;
-  }
-
-  p:last-child {
-    font-size: 1.8rem;
-  }
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: normal;
+  font-size: 5rem;
 }
 
 @media screen and (max-width: 440px) {

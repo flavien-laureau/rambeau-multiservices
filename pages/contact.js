@@ -3,14 +3,8 @@ import portrait from "/public/assets/photos/portrait.jpg";
 import Image from "next/image";
 import Head from "next/head";
 import { useState } from "react";
-import { useRouter } from "next/router";
 
 export default function Contact() {
-  const router = useRouter();
-  const { success } = router.query;
-
-  if (success === "true") alert("Votre message à bien été envoyé.");
-
   const [consent, setConsent] = useState(false);
   const [error, setError] = useState({
     name: {
@@ -317,7 +311,7 @@ export default function Contact() {
           className={styles.form}
           name="contact"
           method="POST"
-          action="/contact?success=true"
+          action="/success"
           data-netlify="true"
           onSubmit={handleSubmit}
           netlify-honeypot="bot-field"

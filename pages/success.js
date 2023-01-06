@@ -1,28 +1,25 @@
-import styles from "../styles/components/404/404.module.scss";
-import digging from "/public/assets/digging.json";
-import Lottie from "lottie-react";
 import Head from "next/head";
 import Link from "next/link";
+import styles from "../styles/components/success/success.module.scss";
+import enveloppe from "/public/assets/enveloppe.json";
+import Lottie from "lottie-react";
 
-export default function Custom404() {
+export default function Success() {
   return (
     <>
       <Head>
         <meta name="robots" content="noindex" />
-        <title>404 - Rambeau Multiservices</title>
+        <title>Message envoyé - Rambeau Multiservices</title>
       </Head>
       <div className={`container`}>
         <Lottie
           className={styles.lottie}
           loop={true}
           autoplay={true}
-          animationData={digging}
+          animationData={enveloppe}
         />
 
-        <div className={styles.mainText}>
-          <p>404 not found</p>
-          <p>La page demandée n'a pas été trouvée.</p>
-        </div>
+        <div className={styles.mainText}>Votre message a bien été envoyé</div>
 
         <div className={styles.links}>
           <Link href="/">Retour à l'accueil</Link>
