@@ -3,6 +3,7 @@ import portrait from "/public/assets/photos/portrait.jpg";
 import Image from "next/image";
 import Head from "next/head";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Contact() {
   const [consent, setConsent] = useState(false);
@@ -31,7 +32,17 @@ export default function Contact() {
       isSetup: false,
       error: "",
     },
+    requiredFields: "",
   });
+  const router = useRouter();
+
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+  };
 
   function validate(event) {
     const { name, value } = event.target;
@@ -129,9 +140,11 @@ export default function Contact() {
       !error.message.isSetup ||
       !error.consent.isSetup
     ) {
-      alert(
-        "Les champs de formulaire marqués d'une étoile* doivent être remplis."
-      );
+      setError({
+        ...error,
+        requiredFields:
+          "Les champs de formulaire marqués d'une étoile* doivent être remplis.",
+      });
       return;
     }
 
@@ -143,7 +156,21 @@ export default function Contact() {
     ) {
       return;
     }
-    event.target.submit();
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": "contact",
+        name: event.target.name.value,
+        phone: event.target.phone.value,
+        email: event.target.email.value,
+        todo: event.target.todo.value,
+        message: event.target.message.value,
+      }),
+    })
+      .then(() => router.push("/success"))
+      .catch((error) => alert(`Une erreur est survenu : ${error}`));
   }
 
   return (
@@ -315,8 +342,8 @@ export default function Contact() {
           data-netlify="true"
           onSubmit={handleSubmit}
           netlify-honeypot="bot-field"
-          data-netlify-recaptcha="true"
         >
+          <input type="hidden" name="form-name" value="contact" />
           <label style={{ display: "none" }}>
             <input name="bot-field" />
           </label>
@@ -327,6 +354,7 @@ export default function Contact() {
               id="name"
               type="text"
               name="name"
+              data-netlify-name="Nom"
               onBlur={validate}
             />
             {error.name && (
@@ -340,6 +368,7 @@ export default function Contact() {
               id="phone"
               type="tel"
               name="phone"
+              data-netlify-name="Numéro de téléphone"
               onBlur={validate}
             />
             {error.phone && (
@@ -353,6 +382,7 @@ export default function Contact() {
               id="email"
               type="email"
               name="email"
+              data-netlify-name="Email"
               onBlur={validate}
             />
             {error.email && (
@@ -366,6 +396,7 @@ export default function Contact() {
               id="todo"
               type="text"
               name="todo"
+              data-netlify-name="Prestation"
               onBlur={validate}
             />
             {error.todo && (
@@ -378,6 +409,7 @@ export default function Contact() {
               className={`${styles.formInput} ${styles.formTextarea}`}
               id="message"
               name="message"
+              data-netlify-name="Message"
               cols="30"
               rows="10"
               onBlur={validate}
@@ -406,10 +438,11 @@ export default function Contact() {
               <div className={styles.error}>{error.consent.error}</div>
             )}
           </label>
-          <div data-netlify-recaptcha="true"></div>
+
           <button className={styles.formButton} type="submit">
             Envoyer
           </button>
+          <div className={styles.error}>{error.requiredFields}</div>
         </form>
       </div>
       <div className={styles.mapImage}>
