@@ -20,7 +20,7 @@ export default function Custom404() {
 
         <div className={styles.text404}>
           <p>404 not found</p>
-          <p>La page demandée n'a pas été trouvé.</p>
+          <p>La page demandée n'a pas été trouvée.</p>
         </div>
 
         <div className={styles.links}>

@@ -2,8 +2,156 @@ import styles from "../styles/components/contact/contact.module.scss";
 import portrait from "/public/assets/photos/portrait.jpg";
 import Image from "next/image";
 import Head from "next/head";
+import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Contact() {
+  const router = useRouter();
+  const { success } = router.query;
+
+  if (success === "true") alert("Votre message à bien été envoyé.");
+
+  const [consent, setConsent] = useState(false);
+  const [error, setError] = useState({
+    name: {
+      isSetup: false,
+      error: "",
+    },
+    phone: {
+      isSetup: false,
+      error: "",
+    },
+    email: {
+      isSetup: false,
+      error: "",
+    },
+    todo: {
+      isSetup: false,
+      error: "",
+    },
+    message: {
+      isSetup: false,
+      error: "",
+    },
+    consent: {
+      isSetup: false,
+      error: "",
+    },
+  });
+
+  function validate(event) {
+    const { name, value } = event.target;
+
+    const emailRegex =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+    if (name === "name" && value.length > 100) {
+      setError({
+        ...error,
+        name: {
+          isSetup: true,
+          error: "Veuillez saisir moins de 100 caractères.",
+        },
+      });
+    } else if (name === "phone" && value.length > 50) {
+      setError({
+        ...error,
+        phone: {
+          isSetup: true,
+          error: "Veuillez saisir un numéro de téléphone valide.",
+        },
+      });
+    } else if (name === "email" && !emailRegex.test(value)) {
+      setError({
+        ...error,
+        email: { isSetup: true, error: "L'adresse email est invalide." },
+      });
+    } else if (name === "todo" && value.length < 3) {
+      setError({
+        ...error,
+        todo: {
+          isSetup: true,
+          error:
+            "L'objet du message est requis et doit faire au moins 3 caractères.",
+        },
+      });
+    } else if (name === "todo" && value.length > 250) {
+      setError({
+        ...error,
+        todo: {
+          isSetup: true,
+          error: "L'objet du message ne doit pas faire plus de 250 caractères.",
+        },
+      });
+    } else if (name === "message" && value.length < 10) {
+      setError({
+        ...error,
+        message: {
+          isSetup: true,
+          error:
+            "Le message est requis et doit contenir au moins 10 caractères.",
+        },
+      });
+    } else if (name === "message" && value.length > 7500) {
+      setError({
+        ...error,
+        message: {
+          isSetup: true,
+          error: "Le message ne doit pas faire plus de 7500 caractères.",
+        },
+      });
+    } else if (name === "consent" && !consent) {
+      setError({
+        ...error,
+        consent: {
+          isSetup: true,
+          error:
+            "Vous devez accepter de transmettre vos coordonnées afin d'être recontacté. Vos données ne seront jamais cédées à un tiers ni utilisées à d’autres fins que celles détaillées ci-dessus.",
+        },
+      });
+    } else {
+      setError({
+        ...error,
+        [name]: {
+          isSetup: true,
+          error: "",
+        },
+      });
+    }
+  }
+
+  function handleCheckboxChange(event) {
+    const { name, checked } = event.target;
+    if (name === "consent") {
+      setConsent(checked);
+    }
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    if (
+      !error.email.isSetup ||
+      !error.todo.isSetup ||
+      !error.message.isSetup ||
+      !error.consent.isSetup
+    ) {
+      alert(
+        "Les champs de formulaire marqués d'une étoile* doivent être remplis."
+      );
+      return;
+    }
+
+    if (
+      error.email.error !== "" ||
+      error.todo.error !== "" ||
+      error.message.error !== "" ||
+      error.consent.error !== ""
+    ) {
+      return;
+    }
+    event.target.submit();
+  }
+
   return (
     <>
       <Head>
@@ -165,33 +313,106 @@ export default function Contact() {
           Contactez-moi pour toute demande de renseignements, conseils ou pour
           obtenir un devis gratuit !
         </p>
-        <form className={styles.form}>
-          <label>
-            Votre nom
-            <input className={styles.formInput} type="text" />
+        <form
+          className={styles.form}
+          name="contact"
+          method="POST"
+          action="/contact?success=true"
+          data-netlify="true"
+          onSubmit={handleSubmit}
+          netlify-honeypot="bot-field"
+          data-netlify-recaptcha="true"
+        >
+          <label style={{ display: "none" }}>
+            <input name="bot-field" />
           </label>
           <label>
-            Votre numéro de téléphone
-            <input className={styles.formInput} type="text" />
+            Votre nom :
+            <input
+              className={styles.formInput}
+              id="name"
+              type="text"
+              name="name"
+              onBlur={validate}
+            />
+            {error.name && (
+              <div className={styles.error}>{error.name.error}</div>
+            )}
           </label>
           <label>
-            Votre email
-            <input className={styles.formInput} type="text" />
+            Votre numéro de téléphone :
+            <input
+              className={styles.formInput}
+              id="phone"
+              type="tel"
+              name="phone"
+              onBlur={validate}
+            />
+            {error.phone && (
+              <div className={styles.error}>{error.phone.error}</div>
+            )}
           </label>
           <label>
-            Prestation à réaliser
-            <input className={styles.formInput} type="text" />
+            Votre email* :
+            <input
+              className={styles.formInput}
+              id="email"
+              type="email"
+              name="email"
+              onBlur={validate}
+            />
+            {error.email && (
+              <div className={styles.error}>{error.email.error}</div>
+            )}
           </label>
           <label>
-            Votre message
+            Prestation à réaliser* :
+            <input
+              className={styles.formInput}
+              id="todo"
+              type="text"
+              name="todo"
+              onBlur={validate}
+            />
+            {error.todo && (
+              <div className={styles.error}>{error.todo.error}</div>
+            )}
+          </label>
+          <label>
+            Votre message* :
             <textarea
               className={`${styles.formInput} ${styles.formTextarea}`}
-              name=""
-              id=""
+              id="message"
+              name="message"
               cols="30"
               rows="10"
+              onBlur={validate}
             ></textarea>
+            {error.message && (
+              <div className={styles.error}>{error.message.error}</div>
+            )}
           </label>
+
+          <label>
+            <div className={styles.formCheckbox}>
+              <p>
+                J'accepte de transmettre mes coordonnées afin d'être
+                recontacté.*
+              </p>
+              <input
+                type="checkbox"
+                id="consent"
+                name="consent"
+                checked={consent}
+                onChange={handleCheckboxChange}
+                onBlur={validate}
+              />
+            </div>
+            {error.consent && (
+              <div className={styles.error}>{error.consent.error}</div>
+            )}
+          </label>
+          <div data-netlify-recaptcha="true"></div>
           <button className={styles.formButton} type="submit">
             Envoyer
           </button>
