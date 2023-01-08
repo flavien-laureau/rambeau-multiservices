@@ -23,7 +23,7 @@ export default function About() {
             terrassement.
           </p>
           <p className={styles.description}>
-            Intervenant dans le secteur de Ménétreuil et dans les villages
+            Intervenant dans le secteur de Ménetreuil et dans les villages
             alentours, je garantis à chaque client un travail de qualité et un
             œil expert pour vous apporter conseils et satisfaction à chacune de
             mes interventions.

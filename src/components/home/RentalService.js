@@ -11,7 +11,7 @@ export default function RentalService() {
           title="Location avec chauffeur"
         >
           Location de pelle 1,8 tonne <br />
-          Pour travaux de terrassements
+          Pour travaux de terrassement
         </ServiceTitle>
 
         <div className={styles.rentContainer}>
@@ -37,7 +37,7 @@ export default function RentalService() {
             <div className={styles.rentFooter}>
               <em>
                 Faites appel à RAMBEAU MULTISERVICES pour réaliser les travaux
-                d’assainissement à Ménétreuil (71) et alentours. Vous profiterez
+                d’assainissement à Ménetreuil (71) et alentours. Vous profiterez
                 d’un interlocuteur unique tout au long de la réalisation du
                 projet.
               </em>

@@ -10,7 +10,7 @@ export default function Hook1() {
             <h2 className={`orange`}>bricolage</h2>
             <p>
               Intérieur et extérieur <br />
-              (hors espace verts)
+              (hors espace vert)
             </p>
             <div className={styles.checklistGrid}>
               <p>
@@ -137,7 +137,7 @@ export default function Hook1() {
           <div className={styles.subSectionContainer}>
             <h2 className={`orange`}>Location</h2>
             <p>
-              Des travaux de terrassements <br />à réaliser ?
+              Des travaux de terrassement <br />à réaliser ?
             </p>
             <strong className={`orange`}>N'attendez-plus !</strong>
             <p className={styles.locContent}>Location mini-pelle</p>
@@ -145,7 +145,7 @@ export default function Hook1() {
             <p className={styles.locContent}>Avec ou sans chauffeur</p>
             <p className={styles.locContent}>
               Terrassement, assainissement <br />
-              et divers canalisations
+              et diverses canalisations
             </p>
           </div>
           <Link href="/#location" scroll={false}>

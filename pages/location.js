@@ -23,18 +23,18 @@ export default function Location() {
           title="Location avec chauffeur"
         >
           Location de pelle 1,8 tonne <br />
-          Pour travaux de terrassements
+          Pour travaux de terrassement
         </ServiceTitle>
 
         <div className={styles.description}>
           <p>
-            Basée à Ménétreuil en Saône-et-Loire (71) à proximité de Louhans,
+            Basée à Ménetreuil en Saône-et-Loire (71) à proximité de Louhans,
             l’entreprise RAMBEAU MULTISERVICES réalise des travaux
             d’assainissement individuels et collectifs, la pose de
-            canalisations, les travaux de VRD, la viabilisation de terrains ou
-            de lotissements, la réalisation de tranchées pour les raccordements
-            VRD ( eau, gaz, électricité ) et de tout à l’égout pour les
-            particuliers et les professionnels.
+            canalisations, les travaux de VRD (Voiries et Réseaux Divers), la
+            viabilisation de terrains ou de lotissements, la réalisation de
+            tranchées pour les raccordements VRD ( eau, gaz, électricité ) et de
+            tout à l’égout pour les particuliers et les professionnels.
           </p>
           <p>
             En fonction de votre projet je vous conseillerais afin de vous
@@ -85,7 +85,7 @@ export default function Location() {
                   Nivellement de terrain (déssouchage, nettoyage, défrichage)
                 </li>
                 <li>
-                  Remblaiement (mise en place de terre de remblai ou végétale)
+                  Remblaiement (mise en place de terre de remblais ou végétale)
                 </li>
                 <li>
                   Terrassement pour fondation de murs ou/et d'ouvrages maçonnés
@@ -105,7 +105,7 @@ export default function Location() {
                 <li>Enrochement</li>
               </ul>
               <em>
-                Petit terrassement, travaux réalisables avec un engin de
+                Petits terrassements, travaux réalisables avec un engin de
                 chantier de 1.8 tonne
               </em>
             </div>
@@ -125,7 +125,7 @@ export default function Location() {
         <Devis>
           L’entreprise RAMBEAU MULTISERVICES vous propose la location d'une
           mini-pelle, avec ou sans chauffeur, pour des prestations de
-          terrassement et/ou travaux d'assainissement à Ménétreuil (71) et
+          terrassement et/ou travaux d'assainissement à Ménetreuil (71) et
           alentours.
         </Devis>
       </div>

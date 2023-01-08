@@ -55,7 +55,7 @@ const Post = () => {
           </div>
 
           <div className={`main-line`}>
-            Les services ci-dessus sont à titres d’exemples,{" "}
+            Les services ci-dessus sont à titre d’exemple,{" "}
             <Link href={"/contact"}>contactez-moi</Link> directement pour que
             nous puissions évaluer ensemble la nature de vos besoins.
           </div>
@@ -63,7 +63,7 @@ const Post = () => {
 
         <Devis>
           L’entreprise RAMBEAU MULTISERVICES intervient pour la réalisation de
-          petit travaux à Ménétreuil (71) et alentours.
+          petit travaux à Ménetreuil (71) et alentours.
         </Devis>
 
         <div className={styles.seeAlso}>

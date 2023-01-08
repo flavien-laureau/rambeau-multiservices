@@ -19,7 +19,7 @@ export default function HandymanService() {
         </div>
 
         <div className={`main-line`}>
-          Les services ci-dessus sont à titres d’exemples,{" "}
+          Les services ci-dessus sont à titre d’exemple,{" "}
           <Link href="/contact">contactez-moi</Link> directement pour que nous
           puissions évaluer ensemble la nature de vos besoins.
         </div>

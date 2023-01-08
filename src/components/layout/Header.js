@@ -20,7 +20,7 @@ export default function Header() {
                 fill="#F2F3F5"
               />
             </svg>
-            <span>Ménétreuil 71470</span>
+            <span>Ménetreuil 71470</span>
           </address>
         </div>
 
