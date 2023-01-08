@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import styles from "../../../styles/components/layout/header.module.scss";
+import logo from "/public/assets/logo.png";
 import * as Toggle from "@radix-ui/react-toggle";
 
 export default function Header() {
@@ -104,9 +106,9 @@ export default function Header() {
       <div className={styles.heroBanner}>
         <div className={styles.container}>
           <Link href="/">
-            <img
-              srcSet=""
-              src="/assets/logo.png"
+            <Image
+              src={logo}
+              className={styles.logo}
               alt="Logo Rambeau, bricolage et location"
             />
           </Link>

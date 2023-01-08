@@ -17,15 +17,13 @@ export default function Home() {
         />
         <title>Rambeau Multiservices</title>
       </Head>
-      <main>
-        <HeroPictures />
-        <Hook1 />
-        <Hook2 />
-        <Skills />
-        <About />
-        <HandymanService />
-        <RentalService />
-      </main>
+      <HeroPictures />
+      <Hook1 />
+      <Hook2 />
+      <Skills />
+      <About />
+      <HandymanService />
+      <RentalService />
     </>
   );
 }
