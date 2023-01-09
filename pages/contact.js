@@ -354,7 +354,6 @@ export default function Contact() {
               id="name"
               type="text"
               name="name"
-              data-netlify-name="Nom"
               onBlur={validate}
             />
             {error.name && (
@@ -368,7 +367,6 @@ export default function Contact() {
               id="phone"
               type="tel"
               name="phone"
-              data-netlify-name="Numéro de téléphone"
               onBlur={validate}
             />
             {error.phone && (
@@ -382,7 +380,6 @@ export default function Contact() {
               id="email"
               type="email"
               name="email"
-              data-netlify-name="Email"
               onBlur={validate}
             />
             {error.email && (
@@ -396,7 +393,6 @@ export default function Contact() {
               id="todo"
               type="text"
               name="todo"
-              data-netlify-name="Prestation"
               onBlur={validate}
             />
             {error.todo && (
@@ -409,7 +405,6 @@ export default function Contact() {
               className={`${styles.formInput} ${styles.formTextarea}`}
               id="message"
               name="message"
-              data-netlify-name="Message"
               cols="30"
               rows="10"
               onBlur={validate}
