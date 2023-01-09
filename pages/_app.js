@@ -1,11 +1,14 @@
 import "../styles/globals.scss";
 import Layout from "../src/components/layout/Layout";
 import Head from "next/head";
+import Script from "next/script";
 
 export default function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
+        {/*Google tag (gtag.js)*/}
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charSet="UTF-8" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -40,6 +43,19 @@ export default function MyApp({ Component, pageProps }) {
         <meta name="msapplication-TileColor" content="#2b5797" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+        window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-23R99L7595');
+        `}
+      </Script>
       <Layout>
         <Component {...pageProps} />
       </Layout>
