@@ -8,11 +8,11 @@ import { useRouter } from "next/router";
 export default function Contact() {
   const [consent, setConsent] = useState(false);
   const [error, setError] = useState({
-    name: {
+    nom: {
       isSetup: false,
       error: "",
     },
-    phone: {
+    telephone: {
       isSetup: false,
       error: "",
     },
@@ -20,7 +20,7 @@ export default function Contact() {
       isSetup: false,
       error: "",
     },
-    todo: {
+    prestation: {
       isSetup: false,
       error: "",
     },
@@ -49,18 +49,18 @@ export default function Contact() {
 
     const emailRegex =
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-    if (name === "name" && value.length > 100) {
+    if (name === "nom" && value.length > 100) {
       setError({
         ...error,
-        name: {
+        nom: {
           isSetup: true,
           error: "Veuillez saisir moins de 100 caractères.",
         },
       });
-    } else if (name === "phone" && value.length > 50) {
+    } else if (name === "telephone" && value.length > 50) {
       setError({
         ...error,
-        phone: {
+        telephone: {
           isSetup: true,
           error: "Veuillez saisir un numéro de téléphone valide.",
         },
@@ -70,19 +70,19 @@ export default function Contact() {
         ...error,
         email: { isSetup: true, error: "L'adresse email est invalide." },
       });
-    } else if (name === "todo" && value.length < 3) {
+    } else if (name === "prestation" && value.length < 3) {
       setError({
         ...error,
-        todo: {
+        prestation: {
           isSetup: true,
           error:
             "L'objet du message est requis et doit faire au moins 3 caractères.",
         },
       });
-    } else if (name === "todo" && value.length > 250) {
+    } else if (name === "prestation" && value.length > 250) {
       setError({
         ...error,
-        todo: {
+        prestation: {
           isSetup: true,
           error: "L'objet du message ne doit pas faire plus de 250 caractères.",
         },
@@ -136,7 +136,7 @@ export default function Contact() {
 
     if (
       !error.email.isSetup ||
-      !error.todo.isSetup ||
+      !error.prestation.isSetup ||
       !error.message.isSetup ||
       !error.consent.isSetup
     ) {
@@ -150,7 +150,7 @@ export default function Contact() {
 
     if (
       error.email.error !== "" ||
-      error.todo.error !== "" ||
+      error.prestation.error !== "" ||
       error.message.error !== "" ||
       error.consent.error !== ""
     ) {
@@ -162,10 +162,10 @@ export default function Contact() {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
         "form-name": "contact",
-        name: event.target.name.value,
-        phone: event.target.phone.value,
+        nom: event.target.nom.value,
+        telephone: event.target.telephone.value,
         email: event.target.email.value,
-        todo: event.target.todo.value,
+        prestation: event.target.prestation.value,
         message: event.target.message.value,
       }),
     })
@@ -351,26 +351,24 @@ export default function Contact() {
             Votre nom :
             <input
               className={styles.formInput}
-              id="name"
+              id="nom"
               type="text"
-              name="name"
+              name="nom"
               onBlur={validate}
             />
-            {error.name && (
-              <div className={styles.error}>{error.name.error}</div>
-            )}
+            {error.nom && <div className={styles.error}>{error.nom.error}</div>}
           </label>
           <label>
             Votre numéro de téléphone :
             <input
               className={styles.formInput}
-              id="phone"
+              id="telephone"
               type="tel"
-              name="phone"
+              name="telephone"
               onBlur={validate}
             />
-            {error.phone && (
-              <div className={styles.error}>{error.phone.error}</div>
+            {error.telephone && (
+              <div className={styles.error}>{error.telephone.error}</div>
             )}
           </label>
           <label>
@@ -390,13 +388,13 @@ export default function Contact() {
             Prestation à réaliser* :
             <input
               className={styles.formInput}
-              id="todo"
+              id="prestation"
               type="text"
-              name="todo"
+              name="prestation"
               onBlur={validate}
             />
-            {error.todo && (
-              <div className={styles.error}>{error.todo.error}</div>
+            {error.prestation && (
+              <div className={styles.error}>{error.prestation.error}</div>
             )}
           </label>
           <label>
