@@ -1,20 +1,25 @@
-import { useRouter } from "next/router";
 import styles from "../../styles/components/handyman/services.module.scss";
+import Services from "/public/services.json";
 import ServiceTitle from "../../src/components/global/ServiceTitle";
 import Devis from "../../src/components/global/Devis";
-import Services from "/public/services.json";
-import Image from "next/image";
 import GridService from "../../src/components/global/GridService";
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
-const Post = () => {
+const Post = ({ servicesData }) => {
   const router = useRouter();
   const { slug } = router.query;
+  console.log(router);
+  console.log(slug);
 
-  const [service] = Services.filter((s) => s.verb.toLowerCase() === slug);
-  const otherService = Services.filter((s) => s.verb.toLowerCase() !== slug);
-  const title = `${service?.verb} - Rambeau Multiservices`;
+  const [service] = servicesData.filter((s) => s.verb.toLowerCase() === slug);
+  const otherService = servicesData.filter(
+    (s) => s.verb.toLowerCase() !== slug
+  );
+
+  const title = `${service.verb} - Rambeau Multiservices`;
 
   return (
     <>
@@ -34,20 +39,18 @@ const Post = () => {
 
         <div>
           <div className={styles.content}>
-            {service?.img ? (
-              <Image
-                className={styles.img}
-                src={service.img}
-                alt={`Service de bricolage : ${service.verb}`}
-                width="700"
-                height="700"
-              />
-            ) : null}
+            <Image
+              className={styles.img}
+              src={service.img}
+              alt={`Service de bricolage : ${service.verb}`}
+              width="700"
+              height="700"
+            />
 
             <div>
-              <h4>{service?.title}</h4>
+              <h4>{service.title}</h4>
               <ul>
-                {service?.services.map((s, i) => (
+                {service.services.map((s, i) => (
                   <li key={i}>{s}</li>
                 ))}
               </ul>
@@ -63,7 +66,7 @@ const Post = () => {
 
         <Devis>
           L’entreprise RAMBEAU MULTISERVICES intervient pour la réalisation de
-          petit travaux à Ménetreuil (71) et alentours.
+          petits travaux à Ménetreuil (71) et alentours.
         </Devis>
 
         <div className={styles.seeAlso}>
@@ -76,5 +79,32 @@ const Post = () => {
     </>
   );
 };
+
+async function getData() {
+  return Services;
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: [
+      "/services/poser",
+      "/services/installer",
+      "/services/monter",
+      "/services/réparer",
+      "/services/déboucher",
+      "/services/peindre",
+    ],
+    fallback: false,
+  };
+}
+
+export async function getStaticProps() {
+  const servicesData = await getData();
+  return {
+    props: {
+      servicesData,
+    },
+  };
+}
 
 export default Post;

@@ -13,7 +13,7 @@ export default function Home() {
       <Head>
         <meta
           name="description"
-          content="Un professionnel qualifié pour vos travaux de terrassement, assainissement et divers canalisations..."
+          content="Un professionnel qualifié pour vos travaux de terrassement, assainissement et diverses canalisations..."
         />
         <title>Rambeau Multiservices</title>
       </Head>
