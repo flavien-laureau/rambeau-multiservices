@@ -11,8 +11,6 @@ import { useRouter } from "next/router";
 const Post = ({ servicesData }) => {
   const router = useRouter();
   const { slug } = router.query;
-  console.log(router);
-  console.log(slug);
 
   const [service] = servicesData.filter((s) => s.verb.toLowerCase() === slug);
   const otherService = servicesData.filter(
