@@ -20,6 +20,7 @@ export default function Footer() {
 
           <div className={`${styles.two} ${styles.footerSection}`}>
             <h5 className={styles.footerTitle}>Secteurs d’interventions</h5>
+            <p>Louhans</p>
             <p>Lons-le-Saunier</p>
             <p>Chalon-sur-Saône</p>
             <p>Macôn</p>
