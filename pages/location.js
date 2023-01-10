@@ -54,22 +54,29 @@ export default function Location() {
               </h4>
               <ul>
                 <li>
-                  Assainissement individuel ou collectif ( Maison, immeuble,
-                  bâtiment industriel, pose de micro station, épandage )
+                  Assainissement individuel ou collectif (installation de
+                  micro-stations d'épuration, épandage, mise en conformité des
+                  installations existantes)
                 </li>
-                <li>Raccordement au réseau du tout à l’égout</li>
+                <li>Raccordement au réseau du tout-à-l’égout</li>
                 <li>
-                  Drainage et récupération des eaux pluviales ( pose de drains )
+                  Drainage et récupération des eaux pluviales (pose de drains,
+                  installation de cuves de stockage)
                 </li>
                 <li>
-                  Mise en conformité des fosses septiques ( remplacement et mise
-                  aux normes )
+                  Mise en conformité des fosses septiques existantes
+                  (remplacement, vidange, inspection)
                 </li>
-                <li>Installation de fosses septiques ( plastique, béton )</li>
-                <li>Pose de micro stations d’épuration</li>
-                <li>Pose de station de relevage</li>
-                <li>Réalisation de puits perdus</li>
-                <li>Débouchage de canalisation</li>
+                <li>
+                  Installation de fosses septiques (en plastique ou en béton)
+                </li>
+                <li>
+                  Pompage des eaux usées (pose de station de relevage,
+                  réalisation de puits perdus)
+                </li>
+                <li>Débouchage et nettoyage des canalisations obstruées</li>
+                <li>Nettoyage des canalisations obstruées</li>
+                <li>Détection de fuites dans les canalisations</li>
               </ul>
             </div>
           </div>
@@ -88,21 +95,22 @@ export default function Location() {
                   Remblaiement (mise en place de terre de remblais ou végétale)
                 </li>
                 <li>
-                  Terrassement pour fondation de murs ou/et d'ouvrages maçonnés
+                  Excavation pour fondation de murs ou/et d'ouvrages maçonnés
                 </li>
                 <li>
                   Terrassement et passage de réseaux (électrique, eau,
-                  assainissement…)
+                  assainissement, gaz)
                 </li>
-                <li>Drainage ( pose de drains )</li>
                 <li>
-                  Création d’un trou de piscine (Terrassement et évacuation )
+                  Création d’un trou de piscine (Terrassement et évacuation)
                 </li>
                 <li>
                   Aménagement de chemins d’accès (calcaire, béton concassé)
                 </li>
                 <li>Création d’allées de jardin (cailloux, enrobés)</li>
-                <li>Enrochement</li>
+                <li>
+                  Enrochement (mise en place de pierres pour la décoration)
+                </li>
               </ul>
               <em>
                 Petits terrassements, travaux réalisables avec un engin de
