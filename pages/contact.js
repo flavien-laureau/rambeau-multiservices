@@ -2,39 +2,17 @@ import styles from "../styles/components/contact/contact.module.scss";
 import portrait from "/public/assets/photos/portrait.jpg";
 import Image from "next/image";
 import Head from "next/head";
-import { useState } from "react";
 import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
 
 export default function Contact() {
-  const [consent, setConsent] = useState(false);
-  const [error, setError] = useState({
-    nom: {
-      isSetup: false,
-      error: "",
-    },
-    telephone: {
-      isSetup: false,
-      error: "",
-    },
-    email: {
-      isSetup: false,
-      error: "",
-    },
-    prestation: {
-      isSetup: false,
-      error: "",
-    },
-    message: {
-      isSetup: false,
-      error: "",
-    },
-    consent: {
-      isSetup: false,
-      error: "",
-    },
-    requiredFields: "",
-  });
   const router = useRouter();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const encode = (data) => {
     return Object.keys(data)
@@ -44,134 +22,29 @@ export default function Contact() {
       .join("&");
   };
 
-  function validate(event) {
-    const { name, value } = event.target;
-
-    const emailRegex =
-      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-    if (name === "nom" && value.length > 100) {
-      setError({
-        ...error,
-        nom: {
-          isSetup: true,
-          error: "Veuillez saisir moins de 100 caractères.",
-        },
-      });
-    } else if (name === "telephone" && value.length > 50) {
-      setError({
-        ...error,
-        telephone: {
-          isSetup: true,
-          error: "Veuillez saisir un numéro de téléphone valide.",
-        },
-      });
-    } else if (name === "email" && !emailRegex.test(value)) {
-      setError({
-        ...error,
-        email: { isSetup: true, error: "L'adresse email est invalide." },
-      });
-    } else if (name === "prestation" && value.length < 3) {
-      setError({
-        ...error,
-        prestation: {
-          isSetup: true,
-          error:
-            "L'objet du message est requis et doit faire au moins 3 caractères.",
-        },
-      });
-    } else if (name === "prestation" && value.length > 250) {
-      setError({
-        ...error,
-        prestation: {
-          isSetup: true,
-          error: "L'objet du message ne doit pas faire plus de 250 caractères.",
-        },
-      });
-    } else if (name === "message" && value.length < 10) {
-      setError({
-        ...error,
-        message: {
-          isSetup: true,
-          error:
-            "Le message est requis et doit contenir au moins 10 caractères.",
-        },
-      });
-    } else if (name === "message" && value.length > 7500) {
-      setError({
-        ...error,
-        message: {
-          isSetup: true,
-          error: "Le message ne doit pas faire plus de 7500 caractères.",
-        },
-      });
-    } else if (name === "consent" && !consent) {
-      setError({
-        ...error,
-        consent: {
-          isSetup: true,
-          error:
-            "Vous devez accepter de transmettre vos coordonnées afin d'être recontacté. Vos données ne seront jamais cédées à un tiers ni utilisées à d’autres fins que celles détaillées ci-dessus.",
-        },
-      });
-    } else {
-      setError({
-        ...error,
-        [name]: {
-          isSetup: true,
-          error: "",
-        },
-      });
-    }
-  }
-
-  function handleCheckboxChange(event) {
-    const { name, checked } = event.target;
-    if (name === "consent") {
-      setConsent(checked);
-    }
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    if (
-      !error.email.isSetup ||
-      !error.prestation.isSetup ||
-      !error.message.isSetup ||
-      !error.consent.isSetup
-    ) {
-      setError({
-        ...error,
-        requiredFields:
-          "Les champs de formulaire marqués d'une étoile* doivent être remplis.",
-      });
-      return;
-    }
-
-    if (
-      error.email.error !== "" ||
-      error.prestation.error !== "" ||
-      error.message.error !== "" ||
-      error.consent.error !== ""
-    ) {
-      return;
-    }
-
+  const onSubmit = (data) => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
         "form-name": "contact",
-        nom: event.target.nom.value,
-        telephone: event.target.telephone.value,
-        email: event.target.email.value,
-        prestation: event.target.prestation.value,
-        message: event.target.message.value,
+        nom: data.nom,
+        telephone: data.telephone,
+        email: data.email,
+        objet: data.objet,
+        message: data.message,
       }),
     })
       .then(() => router.push("/success"))
       .catch((error) => alert(`Une erreur est survenu : ${error}`));
-  }
+  };
+
+  const MAXLENGTH_NAME = 100;
+  const MAXLENGTH_TEL = 20;
+  const MAXLENGTH_EMAIL = 255;
+  const MAXLENGTH_SUBJECT = 255;
+  const MINLENGTH_MESSAGE = 3;
+  const MAXLENGTH_MESSAGE = 255;
 
   return (
     <>
@@ -334,81 +207,132 @@ export default function Contact() {
           Contactez-moi pour toute demande de renseignements, conseils ou pour
           obtenir un devis gratuit !
         </p>
+
         <form
           className={styles.form}
           name="contact"
           method="POST"
           action="/success"
           data-netlify="true"
-          onSubmit={handleSubmit}
+          onSubmit={handleSubmit(onSubmit)}
           netlify-honeypot="bot-field"
         >
           <input type="hidden" name="form-name" value="contact" />
           <label style={{ display: "none" }}>
             <input name="bot-field" />
           </label>
+
           <label>
             Votre nom :
             <input
               className={styles.formInput}
               id="nom"
               type="text"
-              name="nom"
-              onBlur={validate}
+              {...register("nom", {
+                maxLength: {
+                  value: MAXLENGTH_NAME,
+                  message: `Maximum ${MAXLENGTH_NAME} caractères`,
+                },
+              })}
             />
-            {error.nom && <div className={styles.error}>{error.nom.error}</div>}
+            {errors.nom && (
+              <span className={styles.error}>{errors.nom.message}</span>
+            )}
           </label>
+
           <label>
             Votre numéro de téléphone :
             <input
               className={styles.formInput}
               id="telephone"
               type="tel"
-              name="telephone"
-              onBlur={validate}
+              {...register("telephone", {
+                pattern: {
+                  value: /^\d+$/,
+                  message: "Votre numéro de téléphone n'est pas valide",
+                },
+                maxLength: {
+                  value: MAXLENGTH_TEL,
+                  message: "Votre numéro de téléphone n'est pas valide",
+                },
+              })}
             />
-            {error.telephone && (
-              <div className={styles.error}>{error.telephone.error}</div>
+            {errors.telephone && (
+              <span className={styles.error}>{errors.telephone.message}</span>
             )}
           </label>
+
           <label>
             Votre email* :
             <input
               className={styles.formInput}
               id="email"
               type="email"
-              name="email"
-              onBlur={validate}
+              {...register("email", {
+                required: {
+                  value: true,
+                  message: "Votre adresse mail est requise",
+                },
+                pattern: {
+                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                  message: "Votre email n'est pas valide",
+                },
+                maxLength: {
+                  value: MAXLENGTH_EMAIL,
+                  message: `Maximum ${MAXLENGTH_EMAIL} caractères`,
+                },
+              })}
             />
-            {error.email && (
-              <div className={styles.error}>{error.email.error}</div>
+            {errors.email && (
+              <span className={styles.error}>{errors.email.message}</span>
             )}
           </label>
+
           <label>
-            Prestation à réaliser* :
+            Objet de votre demande* :
             <input
               className={styles.formInput}
-              id="prestation"
+              id="object"
               type="text"
-              name="prestation"
-              onBlur={validate}
+              {...register("objet", {
+                required: {
+                  value: true,
+                  message: "Veuillez indiquer l'objet de votre demande",
+                },
+                maxLength: {
+                  value: MAXLENGTH_SUBJECT,
+                  message: `Maximum ${MAXLENGTH_SUBJECT} caractères`,
+                },
+              })}
             />
-            {error.prestation && (
-              <div className={styles.error}>{error.prestation.error}</div>
+            {errors.objet && (
+              <span className={styles.error}>{errors.objet.message}</span>
             )}
           </label>
+
           <label>
             Votre message* :
             <textarea
               className={`${styles.formInput} ${styles.formTextarea}`}
               id="message"
               name="message"
-              cols="30"
-              rows="10"
-              onBlur={validate}
+              {...register("message", {
+                required: {
+                  value: true,
+                  message: "Votre message est requis",
+                },
+                minLength: {
+                  value: MINLENGTH_MESSAGE,
+                  message: `Minimum ${MINLENGTH_MESSAGE} caractères`,
+                },
+                maxLength: {
+                  value: MAXLENGTH_MESSAGE,
+                  message: `Maximum ${MAXLENGTH_MESSAGE} caractères`,
+                },
+              })}
             ></textarea>
-            {error.message && (
-              <div className={styles.error}>{error.message.error}</div>
+            {errors.message && (
+              <span className={styles.error}>{errors.message.message}</span>
             )}
           </label>
 
@@ -421,21 +345,24 @@ export default function Contact() {
               <input
                 type="checkbox"
                 id="consent"
-                name="consent"
-                checked={consent}
-                onChange={handleCheckboxChange}
-                onBlur={validate}
+                {...register("consent", {
+                  required: {
+                    value: true,
+                    message:
+                      "Vous devez accepter de transmettre vos coordonnées afin d'être recontacté. Vos données ne seront jamais cédées à un tiers ni utilisées à d’autres fins que celles détaillées ci-dessus.",
+                  },
+                })}
               />
             </div>
-            {error.consent && (
-              <div className={styles.error}>{error.consent.error}</div>
+            {errors.consent && (
+              <span className={styles.error}>{errors.consent.message}</span>
             )}
           </label>
 
           <button className={styles.formButton} type="submit">
             Envoyer
           </button>
-          <div className={styles.error}>{error.requiredFields}</div>
+          <em>* Champs obligatoires</em>
         </form>
       </div>
       <div className={styles.mapImage}>
