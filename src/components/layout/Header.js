@@ -84,21 +84,17 @@ export default function Header() {
         <ul className={`container`}>
           <li>
             <Link href="/">Accueil</Link>
-            <div></div>
           </li>
           <li>
             <Link href="/#bricolage" scroll={false}>
               Bricolage
             </Link>
-            <div></div>
           </li>
           <li>
             <Link href="/location">Location avec chauffeur</Link>
-            <div></div>
           </li>
           <li>
             <Link href="/contact">Contact</Link>
-            <div></div>
           </li>
         </ul>
       </nav>

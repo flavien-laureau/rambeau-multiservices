@@ -114,20 +114,25 @@
     padding: 10px 32px 5px 32px;
 
     a {
+      position: relative;
       color: $dark-text;
       text-decoration: none;
       white-space: nowrap;
-    }
 
-    div {
-      width: 0;
-      height: 4px;
-      background: $orange;
-      transition: all 0.3s ease-in-out;
-    }
-
-    &:hover div {
-      width: 100%;
+      &::before {
+        //Soulignement
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 4px;
+        background: $orange;
+        transition: all 0.3s ease-in-out;
+      }
+      &:hover::before {
+        width: 100%;
+      }
     }
   }
 }
