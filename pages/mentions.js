@@ -8,7 +8,7 @@ export default function Mentions() {
       <Head>
         <meta
           name="description"
-          content="Le présent site, accessible à l’URL rambeau-multiservices.fr, est édité par : Samuel FAUDAN, de nationalité Française, né le 24/09/1971, inscrite au R.C.S. de DIJON sous le numéro RCS Chalon-sur-Saône 818 464 844,"
+          content="Le présent site, accessible à l’URL rambeau-multiservices.fr, est édité par : Samuel FAUDAN, de nationalité Française, né le 24/09/1971, inscrite au R.C.S. de Chalon-sur-Saône sous le numéro RCS Chalon-sur-Saône 818 464 844,"
         />
         <title>Mentions légales - Rambeau Multiservices</title>
       </Head>
@@ -31,8 +31,8 @@ export default function Mentions() {
         </p>
         <p>
           Samuel FAUDAN, de nationalité Française (France), né le 24/09/1971,
-          inscrite au R.C.S. de DIJON sous le numéro RCS Chalon-sur-Saône 818
-          464 844,
+          inscrit au R.C.S. de Chalon-sur-Saône sous le numéro RCS
+          Chalon-sur-Saône 818 464 844,
         </p>
         <p className={styles.mentionsTitle}>Hébergement</p>
         <p>
@@ -116,7 +116,7 @@ export default function Mentions() {
           un message au webmaster :
         </p>
         <p>Par téléphone : 0624769378</p>
-        <p>Par mail : flavien.laureau@gmail.com</p>
+        <p>Par mail : contact@flavien-laureau.fr</p>
         <Link href="/" className={`${styles.btnReturn} ${styles.btnTop}`}>
           Retour au site
         </Link>
