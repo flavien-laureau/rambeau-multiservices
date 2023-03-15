@@ -1,17 +1,14 @@
 import styles from "../../../styles/components/home/about.module.scss";
 import Image from "next/image";
 import Link from "next/link";
+import portrait from "/public/photos/Samuel-Faudan.jpg";
 
 export default function About() {
   return (
     <section className={styles.about}>
       <div className={`container ${styles.container}`}>
         <div className={styles.imgContainer}>
-          <Image
-            src="/assets/photos/Samuel-Faudan.jpg"
-            fill
-            alt="Samuel Faudan"
-          />
+          <Image src={portrait} fill alt="Samuel Faudan" />
         </div>
 
         <div className={styles.aboutContainer}>

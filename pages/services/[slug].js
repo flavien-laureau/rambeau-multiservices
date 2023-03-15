@@ -1,5 +1,5 @@
 import styles from "../../styles/components/handyman/services.module.scss";
-import Services from "/public/services.json";
+import Services from "/assets/services.json";
 import ServiceTitle from "../../src/components/global/ServiceTitle";
 import Devis from "../../src/components/global/Devis";
 import GridService from "../../src/components/global/GridService";

@@ -9,7 +9,7 @@
       "Poser un meuble, une étagère, une verrière, ...",
       "Et bien plus encore ..."
     ],
-    "img" : "/assets/photos/Poser.jpg"
+    "img" : "/photos/Poser.jpg"
   },
   {
     "verb" : "Installer",
@@ -21,7 +21,7 @@
       "Installer des éléments extérieurs (boite aux lettres, gouttières, ...)",
       "Et bien plus encore ..."
     ],
-    "img" : "/assets/photos/Installer.jpg"
+    "img" : "/photos/Installer.jpg"
   },
   {
     "verb" : "Réparer",
@@ -33,7 +33,7 @@
       "Réparer un trou dans un mur",
       "Et à peu près tout ce qui est réparable ..."
     ],
-    "img" : "/assets/photos/Réparer.jpg"
+    "img" : "/photos/Réparer.jpg"
   },
   {
     "verb" : "Monter",
@@ -42,10 +42,10 @@
       "Montage de meubles, de portes coulissantes, ...",
       "Éléments de cuisine",
       "Éléments de salle de bain (vasque, paroi de douche, ....)",
-      "Éléments exterieurs divers (éléments de chalets, de terrasse, ...)",
+      "Éléments extérieurs divers (éléments de chalets, de terrasse, ...)",
       "Et bien plus encore ..."
     ],
-    "img" : "/assets/photos/Monter.jpg"
+    "img" : "/photos/Monter.jpg"
   },
   {
     "verb" : "Déboucher",
@@ -58,7 +58,7 @@
       "Quelques conseils pour réussir vos travaux de plomberie ...",
       "Et bien plus encore ..."
     ],
-    "img" : "/assets/photos/Déboucher.jpg"
+    "img" : "/photos/Déboucher.jpg"
   },
   {
     "verb" : "Peindre",
@@ -71,6 +71,6 @@
       "Quelques conseils pour réussir vos travaux de peinture ...",
       "Et à peu près tout ce qui peut se peindre ..."
     ],
-    "img" : "/assets/photos/Peindre.jpg"
+    "img" : "/photos/Peindre.jpg"
   }
 ]

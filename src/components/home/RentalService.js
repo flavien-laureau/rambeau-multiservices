@@ -48,7 +48,7 @@ export default function RentalService() {
           </div>
           <img
             className={styles.img}
-            src="/assets/photos/pelle.jpg"
+            src="/photos/pelle.jpg"
             alt="Samuel Faudan procède à du terrassement sur la mini-pelle"
           />
         </div>

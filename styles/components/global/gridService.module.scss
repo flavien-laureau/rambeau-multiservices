@@ -61,4 +61,13 @@
   font-family: "Bebas Neue", sans-serif !important;
   font-weight: normal !important;
   font-size: $bebas-3 !important;
+
+  svg {
+    fill: $orange;
+  }
+
+  p {
+    color: $orange;
+    padding-top: 2px;
+  }
 }

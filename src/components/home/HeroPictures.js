@@ -1,7 +1,7 @@
 import styles from "../../../styles/components/layout/header.module.scss";
-import outilsHexa from "/public/assets/photos/outils-hexa.png";
-import portraitHexa from "/public/assets/photos/portrait-hexa.png";
-import pelleHexa from "/public/assets/photos/pelle-hexa.png";
+import outilsHexa from "/public/photos/outils-hexa.png";
+import portraitHexa from "/public/photos/portrait-hexa.png";
+import pelleHexa from "/public/photos/pelle-hexa.png";
 import Image from "next/image";
 
 export default function HeroPictures() {

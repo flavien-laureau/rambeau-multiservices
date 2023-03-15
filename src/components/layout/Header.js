@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "../../../styles/components/layout/header.module.scss";
-import logo from "/public/assets/logo.png";
+import logo from "/assets/logo.png";
 import * as Toggle from "@radix-ui/react-toggle";
 
 export default function Header() {

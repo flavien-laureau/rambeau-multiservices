@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/components/success/success.module.scss";
-import enveloppe from "/public/assets/enveloppe.json";
+import enveloppe from "/assets/enveloppe.json";
 import Lottie from "lottie-react";
 
 export default function Success() {

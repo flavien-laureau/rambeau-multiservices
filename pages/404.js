@@ -1,5 +1,5 @@
 import styles from "../styles/components/404/404.module.scss";
-import digging from "/public/assets/digging.json";
+import digging from "/assets/digging.json";
 import Lottie from "lottie-react";
 import Head from "next/head";
 import Link from "next/link";

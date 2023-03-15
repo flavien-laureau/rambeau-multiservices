@@ -1,5 +1,6 @@
 import styles from "../styles/components/contact/contact.module.scss";
-import portrait from "/public/assets/photos/portrait.jpg";
+import portrait from "/public/photos/portrait.jpg";
+import mapImg from "/public/photos/mapimage.jpg";
 import Image from "next/image";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -367,7 +368,7 @@ export default function Contact() {
       </div>
       <div className={styles.mapImage}>
         <Image
-          src="/assets/photos/mapimage.jpg"
+          src={mapImg}
           alt="Carte de la zone d'activité de Rambeau Multiservices"
           fill
         />

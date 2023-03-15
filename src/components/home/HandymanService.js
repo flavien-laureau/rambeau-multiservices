@@ -1,6 +1,6 @@
 import styles from "../../../styles/components/home/handyman-service.module.scss";
 import ServiceTitle from "../global/ServiceTitle";
-import Services from "/public/services.json";
+import Services from "/assets/services.json";
 import GridService from "../global/GridService";
 import Link from "next/link";
 
