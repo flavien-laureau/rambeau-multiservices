@@ -11,7 +11,7 @@ export default function MyApp({ Component, pageProps }) {
         <meta charSet="UTF-8" />
       </Head>
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=G-23R99L7595`}
         strategy="afterInteractive"
       />
       {/*Google tag (gtag.js)*/}
